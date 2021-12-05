@@ -1,0 +1,6 @@
+from tkinter import *
+win=Tk()
+win.geometry('500x500')
+win.title('myappp')
+win.config(bg='#fe3c72')
+win.mainloop()
