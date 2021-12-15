@@ -7,7 +7,7 @@ import csv
 import os
 import numpy
 import pandas as pd
-from PIL import ImageTk,Image
+import openpyxl
 import mysql.connector
 
 mydb=mysql.connector.connect(host='localhost',password='',user='root',database='school')
@@ -106,7 +106,7 @@ def imp():
            mylabel.configure(text="file could not be opened... try again")
        except FileNotFoundError:
            mylabel.configure(text="file could not be found... try again")
-   clear()
+       clear()
    table["column"]=list(df.columns)
    table["show"]="headings"
    for column in table["column"]:
@@ -118,7 +118,7 @@ def imp():
    table.pack()
    update()
 
-def savedb(id,name,course,fees):
+def savedb():
     for i in mydata:
         id=i[0]
         name=i[1]
@@ -171,22 +171,22 @@ clr.pack(side=tkinter.LEFT,padx=8)
 #user data
 lbl1=Label(wrapper3,text="id",bg="olive",fg="black",font=("times",15,"bold"))
 lbl1.grid(row=0,column=0,padx=5,pady=3)
-ent1=Entry(wrapper3,textvariable=t1,width=50)
+ent1=Entry(wrapper3,textvariable=t1,width=50,font=("times",13),bg="gray36",fg="white")
 ent1.grid(row=0,column=1,padx=5,pady=3)
 
 lbl2=Label(wrapper3,text="studentname",bg="olive",fg="black",font=("times",15,"bold"))
 lbl2.grid(row=1,column=0,padx=5,pady=3)
-ent2=Entry(wrapper3,textvariable=t2,width=50)
+ent2=Entry(wrapper3,textvariable=t2,width=50,font=("times",13),bg="gray36",fg="white")
 ent2.grid(row=1,column=1,padx=5,pady=3)
 
 lbl3=Label(wrapper3,text="course",bg="olive",fg="black",font=("times",15,"bold"))
 lbl3.grid(row=2,column=0,padx=5,pady=3)
-ent3=Entry(wrapper3,textvariable=t3,width=50)
+ent3=Entry(wrapper3,textvariable=t3,width=50,font=("times",13),bg="gray36",fg="white")
 ent3.grid(row=2,column=1,padx=5,pady=3)
 
 lbl4=Label(wrapper3,text="fees",bg="olive",fg="black",font=("times",15,"bold"))
 lbl4.grid(row=3,column=0,padx=5,pady=3)
-ent4=Entry(wrapper3,textvariable=t4,width=50)
+ent4=Entry(wrapper3,textvariable=t4,width=50,font=("times",13),bg="gray36",fg="white")
 ent4.grid(row=3,column=1,padx=5,pady=3)
 
 addbtn=Button(wrapper3,text="add",command=add,bg="olive",fg="black",font=("times",15,"bold"))
